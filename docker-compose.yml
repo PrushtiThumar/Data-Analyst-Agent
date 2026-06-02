@@ -1,0 +1,23 @@
+version: "3.9"
+
+services:
+  analyst-agent:
+    build: .
+    ports:
+      - "8000:8000"   # FastAPI
+      - "8501:8501"   # Streamlit
+    environment:
+      - GROQ_API_KEY=${GROQ_API_KEY}
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - LLM_PROVIDER=${LLM_PROVIDER:-groq}
+      - LLM_MODEL=${LLM_MODEL:-llama3-70b-8192}
+    volumes:
+      - ./data:/app/data
+      - ./reports:/app/reports
+      - ./visualizations:/app/visualizations
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3

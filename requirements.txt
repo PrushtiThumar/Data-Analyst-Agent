@@ -1,0 +1,41 @@
+# Core
+pandas
+numpy
+openpyxl
+xlrd
+
+# AI / LLM
+langchain
+langchain-community
+langchain-groq
+openai
+groq
+
+# Visualization
+plotly
+matplotlib
+seaborn
+kaleido
+
+# Web / API
+streamlit
+fastapi
+uvicorn
+python-multipart
+
+# Reporting
+reportlab
+jinja2
+weasyprint
+
+# ML
+scikit-learn
+scipy
+
+# Utils
+python-dotenv
+pydantic
+httpx
+aiofiles
+loguru
+tenacity
